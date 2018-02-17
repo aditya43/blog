@@ -9,7 +9,7 @@
         <div class="col-4 d-flex justify-content-end align-items-center">
             @if (Auth::check())
                 <div class="dropdown">
-                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -17,7 +17,10 @@
                     </div>
                 </div>
             @else
-                <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
+            <div class="btn-group" role="group" aria-label="Sign In/Up">
+                <a class="btn btn-primary" href="/login">Sign In</a>
+                <a class="btn btn-primary" href="/register">Sign Up</a>
+            </div>
             @endif
         </div>
     </div>

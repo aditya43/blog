@@ -4,7 +4,10 @@
 <div class="col-md-8 blog-main">
     <div class="blog-post">
         <h2 class="blog-post-title">{{ $post->title }}</h2>
-        <p class="blog-post-meta">{{ $post->created_at->diffForHumans() }}</p>
+        <p class="blog-post-meta">
+            {{ $post->created_at->diffForHumans() }} By
+            {{ $post->user->name }}
+        </p>
         <p>{{ $post->body }}</p>
     </div>
     <hr>

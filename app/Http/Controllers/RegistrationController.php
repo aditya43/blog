@@ -8,9 +8,14 @@ use \Adi\User;
 
 class RegistrationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     public function create()
     {
-        return view('sessions.create');
+        return view('registration.create');
     }
 
     public function store(CreateUserAccount $request)

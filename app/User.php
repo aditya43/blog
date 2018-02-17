@@ -34,12 +34,16 @@ class User extends Authenticatable
      */
     public function posts()
     {
-        // hasMany(RelatedModel, foreignKeyOnRelatedModel = user_id, localKey = id)
         return $this->hasMany(Post::class);
     }
 
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function publish(Post $post)
+    {
+        return $this->posts()->save($post);
     }
 }
