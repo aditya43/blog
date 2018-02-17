@@ -22,4 +22,15 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class);
     }
+
+    /**
+     * Comment belongs to User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        // belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)
+        return $this->belongsTo(User::class);
+    }
 }
