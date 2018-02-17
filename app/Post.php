@@ -9,13 +9,31 @@ class Post extends Model
 {
     protected $fillable = ['title', 'body'];
 
+    /**
+     * Post has many Comments.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function addComment(AddComment $request)
+    /**
+     * Post belongs to User.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
     {
-        $this->comments()->create($request->all());
+        return $this->belongsTo(User::class);
     }
+
+    // public function addComment(AddComment $request)
+    // {
+    //     $this->comments()->create([
+    //         'user_id' => auth()->user()->id,
+    //         'body'    => $request->body
+    //     ]);
+    // }
 }

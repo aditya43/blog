@@ -9,9 +9,14 @@ use \Adi\Post;
 
 class CommentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(AddComment $request, Post $post)
     {
-        $post->addComment($request);
+        auth()->user()->addComment($request, $post);
         return back();
     }
 }

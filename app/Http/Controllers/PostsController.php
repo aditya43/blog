@@ -8,6 +8,11 @@ use \Adi\Post;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']); // All actions except 'index' and 'show' requires login.
+    }
+
     public function index()
     {
         $posts = Post::latest()->get();
@@ -21,7 +26,10 @@ class PostsController extends Controller
 
     public function store(CreatePostRequest $request)
     {
-        $post = Post::create($request->all());
+        $post = auth()->user()->addPost(new Post([
+            'title' => $request->title,
+            'body'  => $request->body
+        ]));
         return redirect('posts/' . $post->id);
     }
 

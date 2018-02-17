@@ -4,7 +4,7 @@ namespace Adi\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePostRequest extends FormRequest
+class CreateUserAccount extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class CreatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:5|max:20',
-            'body'  => 'required|min:10|max:500'
+            'name'     => 'required',
+            'email'    => 'required|email',
+            'password' => 'required|min:3|confirmed'
         ];
     }
 }

@@ -1,7 +1,22 @@
 <aside class="col-md-4 blog-sidebar">
           <div class="p-3 mb-3 bg-light rounded">
-            <h4 class="font-italic">About</h4>
-            <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <h4 class="font-italic">Create New Article</h4>
+            @if (auth()->check())
+                <p class="mb-0">
+                    You are logged in as <em>{{ auth()->user()->name }}</em><br><br>
+                    You can create and publish new articles as well as post comments to existing articles.<br><br>
+                    <a href="/posts/create" class="btn btn-primary">New Article</a>
+                </p>
+            @else
+                <p class="mb-0">
+                    You are not logged in. Create an account or login to your existing account to
+                    create new articles or comment to existing articles.
+                    <div class="btn-group" role="group" aria-label="Sign In/Up">
+                        <a class="btn btn-primary" href="/login">Sign In</a>
+                        <a class="btn btn-primary" href="/register">Sign Up</a>
+                    </div>
+                </p>
+            @endif
           </div>
 
           <div class="p-3">
