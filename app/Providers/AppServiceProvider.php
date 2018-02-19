@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('partials._sidebar', function ($view)
+        {
+            $view->with('archives', \Adi\Post::archives());
+        });
     }
 
     /**

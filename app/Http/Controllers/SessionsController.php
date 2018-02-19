@@ -25,12 +25,14 @@ class SessionsController extends Controller
                 'login_failed' => 'Please check your credentials and try again.'
             ]);
         }
+
         return redirect()->home();
     }
 
     public function destroy()
     {
         auth()->logout();
+
         return redirect()->home();
     }
 }

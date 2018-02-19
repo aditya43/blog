@@ -17,6 +17,7 @@ class CommentsController extends Controller
     public function store(AddComment $request, Post $post)
     {
         auth()->user()->addComment($request, $post);
+
         return back();
     }
 }
