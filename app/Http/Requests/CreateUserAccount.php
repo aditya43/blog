@@ -25,7 +25,7 @@ class CreateUserAccount extends FormRequest
     {
         return [
             'name'     => 'required',
-            'email'    => 'required|email',
+            'email'    => 'required|email|unique:users',
             'password' => 'required|min:3|confirmed'
         ];
     }
