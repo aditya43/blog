@@ -4,6 +4,8 @@ namespace Adi;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use \Adi\Http\Requests\AddComment;
 
 class User extends Authenticatable
 {
@@ -37,13 +39,31 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function setPasswordAttribute($password)
+    /**
+     * User has many Comments.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
     {
-        $this->attributes['password'] = bcrypt($password);
+        return $this->hasMany(Comment::class);
     }
 
-    public function publish(Post $post)
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function addPost(Post $post)
     {
         return $this->posts()->save($post);
+    }
+
+    public function addComment(AddComment $request, Post $post)
+    {
+        $this->comments()->create([
+            'post_id' => $post->id,
+            'body'    => $request->body
+        ]);
     }
 }

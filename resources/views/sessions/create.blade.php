@@ -4,6 +4,14 @@
     <div class="col-md-8 blog-main">
         <h1>Sign In</h1>
         <hr>
+        @if ($errors->has('login_failed'))
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Login Failed!</h4>
+            <hr>
+            <p>{{ $errors->first('login_failed') }}</p>
+            <p class="mb-2">If you do not have an account registered on this website, then please <a href="/register" class="btn-link">click here to sign up for an account.</a></p>
+        </div>
+        @endif
         <form action="/login" method="POST">
 
             {{ csrf_field() }}
@@ -21,7 +29,6 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Sign Up</button>
-
         </form>
     </div>
 @endsection

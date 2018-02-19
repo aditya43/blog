@@ -21,7 +21,9 @@ class SessionsController extends Controller
     {
         if (!auth()->attempt($request->only(['email', 'password'])))
         {
-            redirect()->back();
+            return redirect()->back()->withErrors([
+                'login_failed' => 'Please check your credentials and try again.'
+            ]);
         }
         return redirect()->home();
     }

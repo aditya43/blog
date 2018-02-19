@@ -11,7 +11,7 @@ class Comment extends Model
      *
      * @var array
      */
-    protected $fillable = ['body'];
+    protected $fillable = ['post_id', 'body'];
 
     /**
      * Comment belongs to Post.
@@ -30,7 +30,6 @@ class Comment extends Model
      */
     public function user()
     {
-        // belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)
         return $this->belongsTo(User::class);
     }
 }

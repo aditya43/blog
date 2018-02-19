@@ -26,7 +26,7 @@ class PostsController extends Controller
 
     public function store(CreatePostRequest $request)
     {
-        $post = auth()->user()->publish(new Post([
+        $post = auth()->user()->addPost(new Post([
             'title' => $request->title,
             'body'  => $request->body
         ]));

@@ -16,7 +16,6 @@ class Post extends Model
      */
     public function comments()
     {
-        // hasMany(RelatedModel, foreignKeyOnRelatedModel = post_id, localKey = id)
         return $this->hasMany(Comment::class);
     }
 
@@ -27,12 +26,14 @@ class Post extends Model
      */
     public function user()
     {
-        // belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)
         return $this->belongsTo(User::class);
     }
 
-    public function addComment(AddComment $request)
-    {
-        $this->comments()->create($request->all());
-    }
+    // public function addComment(AddComment $request)
+    // {
+    //     $this->comments()->create([
+    //         'user_id' => auth()->user()->id,
+    //         'body'    => $request->body
+    //     ]);
+    // }
 }
