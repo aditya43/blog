@@ -20,4 +20,6 @@ Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
 Route::get('/login', 'SessionsController@create')->name('login');
 Route::get('/logout', 'SessionsController@destroy');
-Route::post('login', 'SessionsController@store');
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/repo', 'RepositoryDemoController@index'); // For a demo purpose.
