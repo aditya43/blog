@@ -2,6 +2,7 @@
 
 namespace Adi\Providers;
 
+use Adi\Billing\Stripe;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

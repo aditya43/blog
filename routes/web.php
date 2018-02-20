@@ -36,13 +36,21 @@ Route::get('/repo', 'RepositoryDemoController@index');
  *          });
  */
 
-App::bind('Adi\Billing\Stripe', function ()
-{
-    return new \Adi\Billing\Stripe(config('services.stripe.secret'));
-});
+// App::bind('Adi\Billing\Stripe', function ()
+// {
+//     return new \Adi\Billing\Stripe(config('services.stripe.secret'));
+// });
 
-$stripe = App::make('Adi\Billing\Stripe'); // Alternative : $stripe = resolve('Adi\SomeClass')
+// $stripe = App::make('Adi\Billing\Stripe'); // Alternative : $stripe = resolve('Adi\SomeClass')
 
 // $stripe->show();
+
+/*+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+*/
+
+///////////////////////////
+// Service Provider Demo //
+///////////////////////////
+
+// dd(new AdiTest(config('services.stripe.secret'))); // Stripe class aliased to AdiTest
 
 /*+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+*/
