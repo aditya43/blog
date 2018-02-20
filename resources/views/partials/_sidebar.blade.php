@@ -1,5 +1,5 @@
 <aside class="col-md-4 blog-sidebar">
-          <div class="p-3 mb-3 bg-light rounded">
+          <div class="p-3 mb-0 bg-light rounded">
             <h4 class="font-italic">Create New Article</h4>
             @if (auth()->check())
                 <p class="mb-0">
@@ -8,7 +8,7 @@
                     <a href="/posts/create" class="btn btn-primary">New Article</a>
                 </p>
             @else
-                <p class="mb-0">
+                <p class="mb-2">
                     You are not logged in. Create an account or login to your existing account to
                     create new articles or comment to existing articles.
                     <div class="btn-group" role="group" aria-label="Sign In/Up">
