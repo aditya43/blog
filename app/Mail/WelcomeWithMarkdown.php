@@ -2,15 +2,14 @@
 
 namespace Adi\Mail;
 
-use Adi\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Welcome extends Mailable
+class WelcomeWithMarkdown extends Mailable
 {
-    public $user; // All public properties will directly be available under view.
+    public $user;
 
     use Queueable, SerializesModels;
 
@@ -19,7 +18,7 @@ class Welcome extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(\Adi\User $user)
     {
         $this->user = $user;
     }
@@ -31,6 +30,6 @@ class Welcome extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.welcome');
+        return $this->markdown('emails.welcome-with-markdown');
     }
 }

@@ -11,6 +11,18 @@ Route::get('/login', 'SessionsController@create')->name('login');
 Route::get('/logout', 'SessionsController@destroy');
 Route::post('/login', 'SessionsController@store');
 
+Route::get('welcome-mail-render', function ()
+{
+    return (new Adi\Mail\WelcomeWithMarkdown(\Illuminate\Support\Facades\Auth::user()))->render();
+});
+
+Route::get('welcome-mail-send', function ()
+{
+    Illuminate\Support\Facades\Mail::to($user = \Illuminate\Support\Facades\Auth::user())->send(new Adi\Mail\WelcomeWithMarkdown($user));
+
+    return 'Mail Sent!';
+});
+
 /*+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+*/
 
 //////////////////////
