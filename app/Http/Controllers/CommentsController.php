@@ -18,6 +18,8 @@ class CommentsController extends Controller
     {
         auth()->user()->addComment($request, $post);
 
+        session()->flash('message', 'Your comment has been successfully added!');
+
         return back();
     }
 }

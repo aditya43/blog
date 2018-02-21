@@ -35,16 +35,16 @@
         <p>
             <a href="#">Back to top</a>
         </p>
-    </footer>
+</footer>
 
-    <script src="/js/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <script src="/js/vendor/holder.min.js"></script>
-    <script>
-        Holder.addTheme('thumb', {
-            bg: '#55595c',
-            fg: '#eceeef',
-            text: 'Thumbnail'
-        });
+<script src="/js/jquery.js" crossorigin="anonymous"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="/js/holder.min.js"></script>
+<script>
+    Holder.addTheme('thumb', {
+    bg: '#55595c',
+    fg: '#eceeef',
+    text: 'Thumbnail'
+    });
 </script>

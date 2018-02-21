@@ -32,6 +32,8 @@ class PostsController extends Controller
             'body'  => $request->body
         ]));
 
+        session()->flash('message', 'Your article has been successfully created!');
+
         return redirect('posts/' . $post->id);
     }
 

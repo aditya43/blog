@@ -13,6 +13,12 @@
 </head>
 <body>
 
+    @if ($flash = session('message'))
+        <div class="alert alert-success adi-alert" role="alert">
+            {{ $flash }}
+        </div>
+    @endif
+
     <div class="container">
         @include('partials/_header')
         @include('partials/_nav')
@@ -29,5 +35,9 @@
     </div>
 
     @include('partials/_footer')
+
+    <script type="text/javascript" charset="utf-8" async defer>
+        $('div.alert').not('.alert-important').delay(3000).slideUp(600);
+    </script>
 </body>
 </html>

@@ -21,6 +21,8 @@ class RegistrationController extends Controller
     {
         $form->save();
 
+        session()->flash('message', 'Your account has been created!');
+
         return redirect()->home();
     }
 }
