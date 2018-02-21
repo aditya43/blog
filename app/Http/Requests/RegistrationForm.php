@@ -2,9 +2,11 @@
 
 namespace Adi\Http\Requests;
 
+use Adi\Mail\Welcome;
+use Adi\User;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateUserAccount extends FormRequest
+class RegistrationForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,5 +30,14 @@ class CreateUserAccount extends FormRequest
             'email'    => 'required|email|unique:users',
             'password' => 'required|min:3|confirmed'
         ];
+    }
+
+    public function save()
+    {
+        $user = User::create($this->only(['name', 'email', 'password']));
+
+        auth()->login($user);
+
+        Mail::to($user)->send(new Welcome($user));
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Adi\Http\Controllers;
 
+use Adi\Http\Requests\CreatePostRequest;
+use Adi\Post;
 use Illuminate\Http\Request;
-use \Adi\Http\Requests\CreatePostRequest;
-use \Adi\Post;
 
 class PostsController extends Controller
 {
