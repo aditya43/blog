@@ -2,7 +2,7 @@
 
 namespace Adi\Http\Requests;
 
-use Adi\Mail\Welcome;
+use Adi\Events\NewUserRegistrationEvent;
 use Adi\User;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -38,6 +38,6 @@ class RegistrationForm extends FormRequest
 
         auth()->login($user);
 
-        \Mail::to($user)->send(new Welcome($user));
+        event(new NewUserRegistrationEvent($user));
     }
 }
