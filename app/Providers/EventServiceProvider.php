@@ -2,8 +2,8 @@
 
 namespace Adi\Providers;
 
-use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -13,9 +13,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Adi\Events\Event' => [
-            'Adi\Listeners\EventListener',
-        ],
+        'Adi\Events\NewUserRegistrationEvent' => [
+            'Adi\Listeners\NewUserRegistrationEventListener'
+        ]
     ];
 
     /**
