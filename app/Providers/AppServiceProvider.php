@@ -16,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('partials._sidebar', function ($view)
         {
-            $view->with('archives', \Adi\Post::archives());
+            $archives = \Adi\Post::archives();
+            $tags     = \Adi\Tag::has('posts')->pluck('name');
+
+            $view->with(compact('archives', 'tags'));
         });
     }
 

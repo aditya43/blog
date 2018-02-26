@@ -21,8 +21,8 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testWeSeeSixthArticleOnHomePage()
-    {
-        $this->get('/')->assertSee('Sixth Article');
-    }
+    // public function testWeSeeSixthArticleOnHomePage()
+    // {
+    //     $this->get('/')->assertSee('Sixth Article');
+    // }
 }

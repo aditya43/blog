@@ -4,6 +4,7 @@ namespace Adi;
 
 use Illuminate\Database\Eloquent\Model;
 use \Adi\Http\Requests\AddComment;
+use \Adi\Tag;
 use \Carbon\Carbon;
 
 class Post extends Model
@@ -47,6 +48,11 @@ class Post extends Model
         {
             $query->whereYear('created_at', $filters['year']);
         }
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 
     public static function archives()

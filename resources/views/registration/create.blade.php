@@ -1,7 +1,7 @@
 @extends('partials._master')
 
 @section('content')
-    <div class="col-md-8 blog-main">
+    <div class="col-md-8 blog-main mb-5">
         <h1>Sign Up</h1>
         <hr>
         <form action="/register" method="POST">

@@ -10,6 +10,7 @@ Route::post('/register', 'RegistrationController@store');
 Route::get('/login', 'SessionsController@create')->name('login');
 Route::get('/logout', 'SessionsController@destroy');
 Route::post('/login', 'SessionsController@store');
+Route::get('/posts/tags/{tag}', 'TagsController@index');
 
 Route::get('welcome-mail-render', function ()
 {

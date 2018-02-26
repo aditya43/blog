@@ -7,6 +7,12 @@
         <p class="blog-post-meta">
             {{ $post->created_at->diffForHumans() }} By
             {{ $post->user->name }}
+            @if (count($tags = $post->tags()->pluck('name')))
+                <br>Tags:
+                    @foreach ($tags as $tag)
+                        <a href="/posts/tags/{{ $tag }}">#{{ $tag }}</a>&nbsp;
+                    @endforeach
+            @endif
         </p>
         <p>{{ $post->body }}</p>
     </div>
